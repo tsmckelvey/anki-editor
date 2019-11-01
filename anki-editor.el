@@ -67,6 +67,7 @@
 (require 'ox)
 (require 'ox-html)
 (require 'request)
+(require 'subr-x)
 
 (defconst anki-editor-prop-note-type "ANKI_NOTE_TYPE")
 (defconst anki-editor-prop-note-id "ANKI_NOTE_ID")
