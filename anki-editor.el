@@ -410,7 +410,7 @@ Where the subtree is created depends on PREFIX."
   "Request AnkiConnect for updating or creating NOTE."
   (if (= (alist-get 'note-id note) -1)
       (anki-editor--create-note note)
-    (anki-editor--update-note note)))
+    (anki-editor--update-note-noop note)))
 
 (defun anki-editor--set-note-id (id)
   (unless id
@@ -431,6 +431,8 @@ Where the subtree is created depends on PREFIX."
              #'anki-editor--set-note-id)
 
     (funcall queue)))
+
+(defun anki-editor--update-note-noop (note) (funcall queue))
 
 (defun anki-editor--update-note (note)
   "Request AnkiConnect for updating fields and tags of NOTE."
