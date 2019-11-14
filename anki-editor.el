@@ -432,7 +432,9 @@ Where the subtree is created depends on PREFIX."
 
     (funcall queue)))
 
-(defun anki-editor--update-note-noop (note) (funcall queue))
+(defun anki-editor--update-note-noop (note)
+  (let ((queue (anki-editor--anki-connect-invoke-queue)))
+    (funcall queue)))
 
 (defun anki-editor--update-note (note)
   "Request AnkiConnect for updating fields and tags of NOTE."
